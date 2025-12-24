@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Sun, Moon, LayoutDashboard, LogOut } from 'lucide-react';
+import { Sun, Moon, LayoutDashboard, User, LogOut } from 'lucide-react';
 import { useTheme } from '../../hooks/useTheme.ts';
 import { useAuth } from '../../hooks/useAuth';
 import { Button } from '../ui/Button';
@@ -60,6 +60,20 @@ export const Navbar = () => {
           >
             <LayoutDashboard size={18} />
             <span className="hidden sm:inline">Dashboard</span>
+          </Link>
+          <Link
+            to="/profile"
+            className={`
+              flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-lg
+              transition-all duration-200 no-underline
+              ${isActive('/profile') 
+                ? 'text-primary-500 bg-primary-500/10' 
+                : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+              }
+            `}
+          >
+            <User size={18} />
+            <span className="hidden sm:inline">Profile</span>
           </Link>
         </div>
 
