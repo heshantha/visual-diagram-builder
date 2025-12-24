@@ -1,7 +1,9 @@
-
+import { Layout } from '../../components/layout/layout';
 
 export default function DashboardPage() {
   return (
-    <div>DashboardPage</div>
+    <Layout>
+      <div>DashboardPage</div>
+    </Layout>
   )
 }
