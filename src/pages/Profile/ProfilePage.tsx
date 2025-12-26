@@ -102,6 +102,35 @@ export const ProfilePage = () => {
             </CardContent>
           </Card>
 
+          <Card>
+            <CardContent>
+              <h3 className="text-base font-semibold text-[var(--text-primary)] mb-4">Role Permissions</h3>
+              <div className="flex flex-col gap-3">
+                {user.role === 'editor' ? (
+                  ['Create new diagrams', 'Edit diagram nodes and connections', 'Share diagrams with others', 'Delete owned diagrams'].map((perm) => (
+                    <div key={perm} className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                      <span className="flex items-center justify-center w-6 h-6 bg-emerald-500/15 text-emerald-500 rounded-full text-xs">✓</span>
+                      {perm}
+                    </div>
+                  ))
+                ) : (
+                  <>
+                    <div className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                      <span className="flex items-center justify-center w-6 h-6 bg-emerald-500/15 text-emerald-500 rounded-full text-xs">✓</span>
+                      View shared diagrams
+                    </div>
+                    {['Cannot create or edit diagrams', 'Cannot share or delete diagrams'].map((perm) => (
+                      <div key={perm} className="flex items-center gap-3 text-sm text-[var(--text-secondary)]">
+                        <span className="flex items-center justify-center w-6 h-6 bg-red-500/15 text-red-500 rounded-full text-xs">✗</span>
+                        {perm}
+                      </div>
+                    ))}
+                  </>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+          
           <Card className="border-red-500/30">
             <CardContent>
               <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">Sign Out</h3>
